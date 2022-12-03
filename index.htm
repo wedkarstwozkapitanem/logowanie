@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.min.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="foty/logo.png">
+    <title>Logowanie</title>
+    <meta name="description" content="Logowanie">
+</head>
+
+<body>
+    <main>
+        <div class="zaloguj">
+            <div class="logowanie_panel wysrodkuj">
+                <div class="tytul"><h1>ZALOGUJ SIĘ DO KOKPITU SERWISU</h1></div>
+                <div class="poprawnosc"></div>
+                <form action="" method="post"></form>
+                <input type="email" name="email" id="email" placeholder="Email" />
+                <input type="password" name="haslo" id="haslo" placeholder="Hasło">
+                <input class="przycisk" id="przycisk" type="submit" value="Zaloguj się">
+                </form>
+            </div>
+            <a href="">Zapominałem hasła</a><br>
+            <a href="/rejestracja">Nie masz konta? Zarajestruj się tutaj</a>
+        </div>
+    </main>
+    <footer>&copy Dominik Kapitan Łempicki</footer>
+    <script>
+let bledy = [];
+
+
+let email = document.getElementById('email');
+let haslo = document.getElementById('haslo');
+
+
+
+document.getElementById('przycisk').addEventListener('click',()=> {
+bledy.splice(0)
+if (!email.value) {
+    bledy.push('Nie wpisano emailu!!!');
+}
+if (!haslo.value) {
+   bledy.push('Nie wpisano hasła!!!');
+}
+
+let poprawnosc = document.querySelector('.poprawnosc');
+poprawnosc.innerHTML = "";
+for (let i=0;i<bledy.length;i++) {
+    poprawnosc.innerHTML += '<li>'+bledy[i]+'</li>';
+}
+if (!bledy.length) { //skasowac
+poprawnosc.innerHTML = "Nie prawidłowe dane logowania"
+}
+});
+    </script>
+</body>
+
+</html>
